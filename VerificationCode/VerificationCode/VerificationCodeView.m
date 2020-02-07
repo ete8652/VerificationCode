@@ -73,10 +73,8 @@ static NSInteger w_Small = 40;//小图的宽度
         NSArray *samllArray = [smallDataStr componentsSeparatedByString:@"base64,"];
         NSString *smallStr = samllArray.lastObject;
         NSData * smallData =[[NSData alloc] initWithBase64EncodedString:smallStr options:NSDataBase64DecodingIgnoreUnknownCharacters];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            self.imageV_big.image = [UIImage imageWithData: bigData];
-            self.imageV_small.image = [UIImage imageWithData: smallData];
-        });
+        self.imageV_big.image = [UIImage imageWithData: bigData];
+        self.imageV_small.image = [UIImage imageWithData: smallData];
         NSString *strOne = [NSString stringWithFormat:@"%@",responseObject[@"bg_pic"][@"h"]];
         NSString *strTwo = [NSString stringWithFormat:@"%@",responseObject[@"bg_pic"][@"w"]];
         h_Big = strOne.integerValue;
